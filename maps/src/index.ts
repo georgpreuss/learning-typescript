@@ -1,5 +1,6 @@
-// import { User } from './User'
-// import { Company } from './Company'
+import { User } from './User'
+import { Company } from './Company'
+import { CustomMap } from './CustomMap'
 
 // this should add a script as the first child
 // const script = document.createElement('script')
@@ -13,10 +14,9 @@
 // googleScript.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.API_KEY}`
 // parentElement.insertBefore(googleScript, script)
 
-new google.maps.Map(document.getElementById('map'), {
-  zoom: 3,
-  center: {
-    lat: 0,
-    lng: 0
-  }
-})
+const user = new User()
+const company = new Company()
+const customMap = new CustomMap('map')
+
+customMap.addMarker(user)
+customMap.addMarker(company)
