@@ -9,10 +9,14 @@ var Sorter = /** @class */ (function () {
         // e.g. for length 4, iterate through all 4, then first 3, then first 2, then first
         for (var i = 0; i < length; i++) {
             for (var j = 0; j < length - i - 1; j++) {
-                if (this.collection[j] > this.collection[j + 1]) {
-                    var leftHand = this.collection[j];
-                    this.collection[j] = this.collection[j + 1];
-                    this.collection[j + 1] = leftHand;
+                if (this.collection instanceof Array) { // typeguard
+                    if (this.collection[j] > this.collection[j + 1]) {
+                        var leftHand = this.collection[j];
+                        this.collection[j] = this.collection[j + 1];
+                        this.collection[j + 1] = leftHand;
+                    }
+                }
+                if (typeof this.collection === 'string') {
                 }
             }
         }
